@@ -1,0 +1,329 @@
+/* 
+Este arquivo contém os estilos personalizados para o site, utilizando as classes do Materialize para garantir um design responsivo e moderno. 
+*/
+
+html, body {
+    height: 100%; /* Garante que o HTML e o body ocupem toda a altura da janela */
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    color: #d4af37 !important; /* Define a cor dourada para todo o texto */
+    flex: 1;
+}
+
+main {
+    flex: 1; /* Faz o conteúdo principal ocupar o espaço disponível */
+}
+
+.header {
+    background-color: #26a69a;
+    color: rgb(253, 253, 253);
+    padding: 20px 0;
+    text-align: center;
+}
+
+.navbar {
+    background-color: #00796b;
+}
+
+.navbar a {
+    color: rgb(255, 255, 255);
+}
+
+.section {
+    padding: 40px 20px;
+}
+
+.card {
+    margin: 20px;
+    background-color: #ffffff !important; /* Fundo branco */
+    border: 2px solid #d4af37 !important; /* Borda dourada */
+    border-radius: 8px; /* Bordas arredondadas */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Alinha o conteúdo ao topo */
+    height: auto; /* Ajusta a altura automaticamente com base no conteúdo */
+}
+
+.card-title {
+    color: #ffffff !important; /* Define o título dos cards como branco */
+    font-weight: bold; /* Mantém o texto em negrito */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Adiciona uma leve sombra para melhorar a legibilidade */
+}
+
+.card-content p {
+    color: #d4af37 !important; /* Texto dourado */
+}
+
+.card-image {
+    height: 500px; /* Define uma altura fixa para o container da imagem */
+    width: 100%; /* Garante que a largura ocupe todo o espaço do card */
+    overflow: hidden; /* Corta qualquer parte da imagem que exceda o container */
+}
+
+.card-image img {
+    width: 100%; /* Faz a imagem preencher toda a largura do container */
+    height: auto; /* Ajusta a altura proporcionalmente à largura */
+    object-fit: cover; /* Garante que a imagem preencha o espaço proporcionalmente */
+    border-radius: 8px 8px 0 0; /* Mantém as bordas arredondadas no topo */
+    display: block; /* Remove espaços extras ao redor da imagem */
+}
+
+.card-content {
+    flex-grow: 0; /* Remove o crescimento do espaço do conteúdo */
+    padding: 100px; /* Reduz o espaçamento interno */
+    text-align: center; /* Centraliza o texto */
+}
+
+.container {
+    flex: 1; /* Faz o conteúdo principal ocupar o espaço disponível */
+}
+
+.footer {
+    background-color: #d4af37;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.page-footer {
+    margin-top: auto; /* Empurra o rodapé para o final da página */
+    background-color: #ffffff !important; /* Fundo branco */
+    border-top: 2px solid #d4af37; /* Linha dourada no rodapé */
+    color: #d4af37; /* Texto dourado */
+    padding: 20px 0; /* Espaçamento interno */
+}
+
+.page-footer a {
+    color: #d4af37 !important; /* Links dourados */
+    text-decoration: none; /* Remove o sublinhado dos links */
+}
+
+.page-footer a:hover {
+    text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+}
+
+.page-footer h5, 
+.page-footer p, 
+.page-footer span {
+    color: #d4af37 !important; /* Texto dourado */
+}
+
+.page-footer p {
+    color: #d4af37 !important; /* Texto dourado */
+    font-size: 18px; /* Ajusta o tamanho do texto */
+    text-align: center; /* Centraliza o texto */
+    font-weight: bold; /* Deixa o texto em negrito */
+}
+
+.white-and-gold {
+    background-color: #ffffff !important; /* Fundo branco */
+    color: #d4af37 !important; /* Texto dourado */
+}
+
+.gold-text {
+    color: #d4af37 !important;
+}
+
+.nav-wrapper.white-and-gold {
+    border-bottom: 2px solid #d4af37; /* Linha dourada no menu */
+}
+
+.page-footer.white-and-gold {
+    background-color: #ffffff; /* Branco */
+    border-top: 2px solid #d4af37; /* Linha dourada no rodapé */
+}
+
+.services-section {
+    background-color: #ffffff !important; /* Fundo branco */
+    color: #d4af37 !important; /* Texto dourado */
+    padding: 40px 20px; /* Espaçamento interno */
+    border: 2px solid #d4af37 !important; /* Borda dourada */
+    border-radius: 8px; /* Bordas arredondadas */
+}
+
+.services-section h1, 
+.services-section p, 
+.services-section a {
+    color: #d4af37 !important; /* Texto e links dourados */
+}
+
+.services-section a {
+    text-decoration: none; /* Remove o sublinhado dos links */
+    font-weight: bold;
+}
+
+h1 {
+    color: #d4af37; /* Título principal dourado */
+}
+
+.nav-wrapper {
+    background-color: #ffffff; /* Fundo branco */
+    border-bottom: 2px solid #d4af37; /* Linha dourada no menu */
+}
+
+.nav-wrapper a {
+    color: #d4af37 !important; /* Links dourados */
+    text-decoration: none; /* Remove o sublinhado */
+}
+
+.nav-wrapper a:hover {
+    text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+}
+
+.estetica-section {
+    background-color: #ffffff !important; /* Fundo branco */
+    color: #d4af37 !important; /* Texto dourado */
+    padding: 40px 20px; /* Espaçamento interno */
+    border: 2px solid #d4af37 !important; /* Borda dourada */
+    border-radius: 8px; /* Bordas arredondadas */
+    text-align: center; /* Centraliza o texto */
+}
+
+.estetica-section h1, 
+.estetica-section p {
+    color: #d4af37 !important; /* Texto dourado */
+}
+
+.estetica-section p {
+    color: #d4af37 !important; /* Texto dourado */
+    font-size: 18px; /* Ajusta o tamanho do texto */
+    text-align: center; /* Centraliza o texto */
+    font-weight: bold; /* Deixa o texto em negrito */
+}
+
+/* Sobrescrevendo qualquer fundo rosa */
+body, .estetica-section, .services-section, .page-footer, .card {
+    background-color: #f7e3e3 !important; /* Fundo atualizado para #f7e3e3 */
+}
+
+/* Sobrescrevendo qualquer texto rosa */
+body, .estetica-section h1, .estetica-section p, 
+.services-section h1, .services-section p, 
+.page-footer h5, .page-footer p, .page-footer span, 
+.card-title, .card-content p {
+    color: #d4af37 !important; /* Texto dourado */
+}
+
+/* Links dourados */
+a {
+    color: #d4af37;
+    text-decoration: none;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Bordas douradas */
+.estetica-section, .services-section, .card {
+    border: 2px solid #d4af37 !important; /* Borda dourada */
+    border-radius: 8px; /* Bordas arredondadas */
+}
+
+h1, h2, h3, h4, h5, h6, p, li, span {
+    color: #d4af37 !important; /* Garante que todos os elementos de texto fiquem dourados */
+}
+
+/* Estilizando a seção de contato no rodapé */
+.page-footer h5, 
+.page-footer p, 
+.page-footer ul li {
+    color: #d4af37 !important; /* Texto dourado */
+}
+
+.page-footer ul li a {
+    color: #d4af37;
+    text-decoration: none;
+}
+
+.page-footer ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Estilizando o texto do rodapé para todas as páginas */
+.page-footer h5, 
+.page-footer p, 
+.page-footer ul li, 
+.page-footer span {
+    color: #d4af37 !important; /* Texto dourado */
+}
+
+/* Links no rodapé */
+.page-footer ul li a {
+    color: #d4af37;
+    text-decoration: none;
+}
+
+.page-footer ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Aplica a imagem de fundo apenas na página inicial */
+.home-page {
+    background-image: url('../imagens/Home.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    background-color: #f5dada; /* Fallback atualizado */
+}
+
+.brand-logo {
+    left: 0; /* Garante que o texto fique no canto esquerdo */
+    position: absolute; /* Posiciona o texto no canto esquerdo */
+    transform: translateX(0); /* Remove qualquer deslocamento horizontal */
+}
+
+/* Fundo com a imagem Home para as telas de login e registro */
+.auth-page {
+    background-image: url('../imagens/Home.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 110vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f7e3e3; /* Fundo atualizado */
+}
+
+/* Botão dourado */
+.gold-button {
+    background-color: #b8860b !important; /* Cor dourada */
+    color: #ffffff !important; /* Texto branco */
+    border-radius: 8px; /* Bordas arredondadas */
+    font-weight: bold; /* Texto em negrito */
+    transition: background-color 0.3s ease; /* Transição suave ao passar o mouse */
+}
+
+.gold-button:hover {
+    background-color: #daa520 !important; /* Dourado mais claro ao passar o mouse */
+}
+
+@media (max-width: 768px) {
+    .card-content {
+        padding: 20px; /* Reduz o espaçamento interno */
+    }
+
+    .services-section, .estetica-section {
+        padding: 20px 10px; /* Ajusta o espaçamento */
+    }
+}
+
+
+
+
