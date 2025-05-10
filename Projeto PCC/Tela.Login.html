@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tela de Login</title>
+  <!-- Importando o CSS do Materialize -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: url('imagens/img1.jpg') no-repeat center center fixed;
+      background-size: cover;
+    }
+    .hidden {
+      display: none;
+    }
+    .login-container {
+      background: rgba(255, 255, 255, 0.9); /* Fundo branco com transparência */
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      max-width: 400px;
+    }
+    .login-container h5 {
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    /* Estilo para o título da página */
+    .title {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 24px;
+      color: white;
+      display: flex;
+      align-items: center;
+    }
+    .title i {
+      margin-right: 8px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Título da Página -->
+  <div class="title">
+    <i class="material-icons">lock</i> Tela de Login
+  </div>
+
+  <!-- Tela de Login -->
+  <div class="login-container" id="login-screen">
+    <h5>Login</h5>
+    <form id="login-form">
+      <div class="input-field">
+        <input id="user" type="text" class="validate" required>
+        <label for="user">Usuário</label>
+      </div>
+      <div class="input-field">
+        <input id="senha" type="password" class="validate" required>
+        <label for="senha">Senha</label>
+      </div>
+      <button class="btn waves-effect waves-light blue" type="submit" style="width: 100%;">Entrar</button>
+    </form>
+  </div>
+
+  <!-- Importando o JavaScript do Materialize -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script>
+    // Manipulação do formulário de login
+    document.getElementById('login-form').addEventListener('submit', function(event) {
+      event.preventDefault(); // Evita o envio padrão do formulário
+
+      // Simulação de autenticação (adicione lógica real aqui, se necessário)
+      const user = document.getElementById('user').value;
+      const senha = document.getElementById('senha').value;
+
+      if (user && senha) {
+        // Redireciona para a página Index.html
+        window.location.href = 'Index.html';
+      } else {
+        alert('Por favor, preencha os campos corretamente.');
+      }
+    });
+  </script>
+</body>
+</html>
+
+

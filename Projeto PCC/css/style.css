@@ -1,0 +1,381 @@
+/* Estilo para o menu lateral */
+.sidenav {
+  height: 100%;
+  width: 300px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #2196f3;
+  z-index: 1001;
+  padding: 20px;
+  transform: translateX(-100%); /* Esconde o menu fora da tela */
+  transition: transform 0.3s ease; /* Animação suave ao abrir/fechar */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centraliza os itens horizontalmente */
+  text-align: center; /* Centraliza o texto */
+}
+
+.sidenav.open {
+  transform: translateX(0); /* Mostra o menu ao abrir */
+}
+
+.sidenav h5 {
+  color: white;
+  margin-bottom: 20px;
+}
+
+.sidenav a {
+  display: flex;
+  align-items: center; /* Alinha o ícone e o texto verticalmente */
+  padding: 10px 20px; /* Espaçamento interno */
+  text-decoration: none; /* Remove o sublinhado dos links */
+  color: white; /* Cor do texto */
+  font-size: 18px; /* Tamanho do texto */
+}
+
+.sidenav a i {
+  margin-right: 15px; /* Espaço entre o ícone e o texto */
+  font-size: 24px; /* Tamanho do ícone */
+}
+
+.sidenav a:hover {
+  text-decoration: underline;
+}
+
+/* Estilo para o overlay */
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: none; /* Esconde o overlay inicialmente */
+}
+
+.menu-overlay.active {
+  display: block; /* Mostra o overlay quando o menu está aberto */
+}
+
+/* Aqui você pode adicionar outros estilos personalizados para sua aplicação */
+
+/* Exemplo de estilo genérico */
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+  height: 100vh; /* Define a altura da tela */
+  background-color: #f3f3f3; /* Cor de fundo */
+}
+
+h1 {
+  color: #333;
+  text-align: center;
+  margin-top: 20px;
+}
+
+p {
+  color: #666;
+  text-align: center;
+  font-size: 16px;
+}
+
+.profile-circle {
+  width: 140px; /* Aumenta o tamanho do círculo */
+  height: 140px; /* Aumenta o tamanho do círculo */
+  margin: 20px auto; /* Centraliza o círculo no menu */
+  border: 4px solid white; /* Borda branca */
+  overflow: hidden; /* Garante que a imagem fique dentro do círculo */
+  border-radius: 50%; /* Deixa o contorno circular */
+}
+
+.profile-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Garante que a imagem preencha o círculo */
+}
+
+/* Estilo para o calendário */
+table {
+  margin: 20px auto; /* Centraliza a tabela */
+  width: 80%; /* Define a largura da tabela */
+}
+
+table th, table td {
+  padding: 10px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+table th {
+  background-color: #2196f3; /* Cor de fundo para os dias da semana */
+  color: white; /* Cor do texto */
+}
+
+table td {
+  background-color: #f4f4f4; /* Cor de fundo para os dias */
+  border: 1px solid #ddd; /* Borda para as células */
+}
+
+table td:hover {
+  background-color: #bbdefb; /* Cor de fundo ao passar o mouse */
+  cursor: pointer;
+}
+
+.calendar-navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.calendar-navigation .btn {
+  margin: 0 10px;
+}
+
+.month-label {
+  font-size: 20px;
+  font-weight: bold;
+  color: #2196f3;
+}
+
+/* Estilo para a tabela do calendário */
+#calendar-table td {
+  position: relative; /* Necessário para posicionar o número do dia */
+  width: 100px; /* Define a largura fixa para as células */
+  height: 100px; /* Define a altura fixa para as células */
+  background-color: #f4f4f4; /* Cor de fundo */
+  border: 1px solid #ddd; /* Borda das células */
+  text-align: left; /* Alinha o conteúdo à esquerda */
+  vertical-align: top; /* Alinha o conteúdo ao topo */
+  font-size: 16px; /* Tamanho do texto */
+  color: #333; /* Cor do texto */
+  overflow: hidden; /* Garante que o conteúdo não ultrapasse os limites */
+}
+
+#calendar-table td:hover {
+  background-color: #bbdefb; /* Cor de fundo ao passar o mouse */
+  cursor: pointer; /* Mostra o cursor de ponteiro ao passar o mouse */
+}
+
+/* Número do dia no canto superior esquerdo */
+#calendar-table td .day-number {
+  position: absolute; /* Permite posicionar o número dentro da célula */
+  top: 5px; /* Posiciona no topo */
+  left: 5px; /* Posiciona no canto esquerdo */
+  font-size: 14px; /* Ajusta o tamanho do número */
+  font-weight: bold; /* Deixa o número em negrito */
+  color: #010202; /* Cor do número */
+  pointer-events: none; /* Impede que o número interfira na interação */
+}
+
+/* Estilo para a tabela de clientes */
+.clients-table {
+  margin: 30px auto;
+  width: 80%;
+  text-align: center;
+  max-height: 300px; /* Limita a altura da tabela */
+  overflow-y: auto; /* Adiciona rolagem vertical */
+  margin-top: 20px;
+}
+
+.clients-table h2 {
+  font-size: 24px;
+  color: #2196f3;
+  margin-bottom: 20px;
+}
+
+.clients-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.clients-table th, .clients-table td {
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+.clients-table th {
+  background-color: #f4f4f4;
+  position: sticky;
+  top: 0; /* Mantém o cabeçalho fixo durante a rolagem */
+  z-index: 1;
+}
+
+.clients-table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+.clients-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+.clients-table .adiar-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.clients-table .adiar-btn i {
+  font-size: 18px;
+  color: white;
+}
+
+.clients-table .detalhes-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.clients-table .detalhes-btn i {
+  font-size: 18px;
+  color: white;
+}
+
+.clients-table .input-horario {
+  width: 100px; /* Aumenta a largura do campo de horário */
+  padding: 8px; /* Aumenta o espaço interno */
+  font-size: 16px; /* Aumenta o tamanho da fonte */
+  margin-right: 10px;
+  text-align: center;
+  border: 1px dashed #2196f3;
+  border-radius: 4px;
+  color: #2196f3;
+}
+
+.clients-table .input-horario:focus {
+  outline: none;
+  border-color: #5b5f63;
+}
+
+.clients-table td span {
+  display: block;
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.clients-table td div {
+  font-size: 16px;
+  font-weight: bold;
+  color: #2196f3;
+}
+
+.clients-table .editar-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.clients-table .editar-btn i {
+  font-size: 18px;
+  color: white;
+}
+
+.clients-table .detalhes-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clients-table .detalhes-container span {
+  width: 100%;
+  text-align: center;
+  border: none; /* Remove a borda */
+  border-radius: 0; /* Remove o arredondamento */
+  padding: 20px; /* Aumenta o espaço interno */
+  font-size: px; /* Aumenta o tamanho da fonte dos detalhes */
+  color: #2196f3;
+  margin-right: 10px;
+}
+
+.clients-table .detalhes-container span:empty::before {
+  content: "Sem detalhes";
+  color: #bbb;
+}
+
+.clients-table .btn-small {
+  padding: 10px 15px; /* Aumenta o tamanho dos botões */
+  font-size: 16px; /* Aumenta o tamanho do ícone nos botões */
+}
+
+.input-detalhes {
+  width: 100%;
+  border: 1px dashed #2196f3;
+  border-radius: 4px;
+  padding: 5px;
+  font-size: 14px;
+  color: #2196f3;
+}
+
+.input-detalhes:focus {
+  outline: none;
+  border-color: #000000;
+}
+
+/* Estilo personalizado para a tabela de clientes */
+.clients-table table.striped tbody tr:nth-child(odd) {
+  background-color: #f2f2f2 !important; /* Cinza claro para linhas ímpares */
+}
+
+.clients-table table.striped tbody tr:nth-child(even) {
+  background-color: #e0e0e0 !important; /* Cinza escuro para linhas pares */
+}
+
+.clients-table table.striped tbody tr:hover {
+  background-color: #dcdcdc !important; /* Cor de destaque ao passar o mouse */
+}
+
+.clients-table table.striped th {
+  background-color: #bdbdbd !important; /* Cinza médio para o cabeçalho */
+  color: #000 !important; /* Texto preto no cabeçalho */
+  font-weight: bold; /* Deixa o texto do cabeçalho em negrito */
+}
+
+/* Estilo para o contêiner de imagem */
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px; /* Largura do contêiner */
+  height: 300px; /* Altura do contêiner */
+  background-color: white; /* Fundo branco */
+  border-radius: 15px; /* Bordas arredondadas */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+}
+
+.rounded-image {
+  width: 100%; /* A imagem ocupa toda a largura do contêiner */
+  height: 100%; /* A imagem ocupa toda a altura do contêiner */
+  object-fit: cover; /* Ajusta a imagem para cobrir o contêiner sem distorção */
+  border-radius: 15px; /* Bordas arredondadas da imagem */
+}
+
+.title {
+  text-align: center;
+  margin: 0;
+  padding: 20px 0;
+  color: #fff;
+  font-size: 2.5rem;
+  font-weight: bold;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.7); /* Fundo semitransparente para o título */
+}

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clientes</title>
+  <!-- Importando o CSS do Materialize -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+  <!-- Estilos personalizados -->
+  <link href="css/style.css" rel="stylesheet">
+  <!-- Ícones do Materialize -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: url('imagens/img2.jpg') no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+    table, th, td {
+      border: 1px solid #ddd;
+    }
+    th, td {
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background-color: #f4f4f4;
+    }
+
+    .title {
+      display: flex; /* Define um layout flexível */
+      justify-content: center; /* Centraliza o conteúdo horizontalmente */
+      align-items: center; /* Centraliza o conteúdo verticalmente */
+      text-align: center;
+      margin: 0;
+      padding: 20px 0;
+      color: #fff;
+      font-size: 2.5rem;
+      font-weight: bold;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100%; /* Faz o título ocupar toda a largura */
+      z-index: 1000;
+      background: rgba(0, 0, 0, 0.7); /* Fundo semitransparente para o título */
+    }
+
+    .title i {
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Botão para abrir o menu lateral -->
+  <a href="#" id="menu-toggle" class="btn-floating btn-large blue" style="position: fixed; top: 20px; left: 20px; z-index: 2000;">
+    <i class="material-icons">menu</i>
+  </a>
+
+  <!-- Menu Lateral Vertical -->
+  <div class="menu-overlay" id="menu-overlay"></div>
+  <div class="sidenav" id="sidenav">
+    <a href="Index.html" class="menu-link">
+      <i class="material-icons">home</i> Menu
+    </a>
+    
+    <!-- Círculo de Foto -->
+    <div class="profile-circle">
+      <img src="imagens/img3.jpg" alt="Foto de Perfil">
+    </div>
+    
+    <a href="TelaAnotacao.html" class="menu-link">
+      <i class="material-icons">note</i> Anotações
+    </a>
+    <a href="TelaAgenda.html" class="menu-link">
+      <i class="material-icons">event</i> Agenda
+    </a>
+    <a href="TelaClientes.html" class="menu-link">
+      <i class="material-icons">people</i> Clientes
+    </a>
+    <a href="Tela.Anaminese.html" class="menu-link">
+      <i class="material-icons">assignment</i> Anamnese
+    </a>
+    <a href="Tela.Login.html" class="menu-link">
+      <i class="material-icons">logout</i> Sair
+    </a>
+  </div>
+
+  <!-- Conteúdo da Tela Clientes -->
+  <div class="striped">
+    <!-- Título da Página -->
+    <div class="title">
+      <i class="material-icons">people</i> Clientes
+    </div>
+    <!-- Tabela de Clientes Cadastrados -->
+    <div class="clients-table">
+      <div class="filter-buttons" style="text-align: right; margin-bottom: 10px;">
+        <!-- Botão de Filtro -->
+        <a class="dropdown-trigger btn blue waves-effect waves-light" href="#" data-target="filter-dropdown">
+          Filtrar
+          <i class="material-icons right">filter_list</i>
+        </a>
+
+        <!-- Menu Suspenso -->
+        <ul id="filter-dropdown" class="dropdown-content">
+          <li><a href="#" id="sort-recent">Mais Recente</a></li>
+          <li><a href="#" id="sort-oldest">Mais Antigo</a></li>
+        </ul>
+      </div>
+
+      <!-- Campo de Busca -->
+      <div style="margin-bottom: 10px; display: flex; align-items: center;">
+        <input type="text" id="search-input" placeholder="Buscar por nome..." class="browser-default" style="flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+        <button id="search-button" class="btn blue waves-effect waves-light" style="margin-left: 10px;">
+          <i class="material-icons">search</i>
+        </button>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>CPF</th>
+            <th>Número</th>
+          </tr>
+        </thead>
+        <tbody id="clients-tbody">
+          <tr>
+            <td>{{ cliente.id }}</td>
+            <td>{{ cliente.nome }}</td>
+            <td>{{ cliente.cpf }}</td>
+            <td>{{ cliente.numero }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Importando o JavaScript do Materialize -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <!-- Script personalizado -->
+  <script src="js/script.js"></script>
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Inicializa o menu suspenso do Materialize
+    const dropdownElems = document.querySelectorAll(".dropdown-trigger");
+    M.Dropdown.init(dropdownElems);
+
+    const tbody = document.getElementById("clients-tbody");
+    const sortRecentButton = document.getElementById("sort-recent");
+    const sortOldestButton = document.getElementById("sort-oldest");
+    const searchInput = document.getElementById("search-input");
+
+    // Função para ordenar as linhas da tabela
+    function sortTable(order) {
+      const rows = Array.from(tbody.querySelectorAll("tr"));
+      rows.sort((a, b) => {
+        const idA = parseInt(a.querySelector("td:first-child").textContent);
+        const idB = parseInt(b.querySelector("td:first-child").textContent);
+        return order === "recent" ? idB - idA : idA - idB;
+      });
+
+      // Reorganiza as linhas na tabela
+      rows.forEach(row => tbody.appendChild(row));
+    }
+
+    // Função para filtrar as linhas da tabela com base na pesquisa
+    function filterTable() {
+      const searchTerm = searchInput.value.toLowerCase();
+      const rows = Array.from(tbody.querySelectorAll("tr"));
+
+      rows.forEach(row => {
+        const cells = row.querySelectorAll("td");
+        const nome = cells[1].textContent.toLowerCase();
+        row.style.display = nome.includes(searchTerm) ? "" : "none";
+      });
+    }
+
+    // Eventos para os itens do menu suspenso
+    sortRecentButton.addEventListener("click", function (e) {
+      e.preventDefault();
+      sortTable("recent");
+    });
+
+    sortOldestButton.addEventListener("click", function (e) {
+      e.preventDefault();
+      sortTable("oldest");
+    });
+
+    // Evento para o campo de busca
+    searchInput.addEventListener("input", filterTable);
+  });
+</script>
+</body>
+</html>

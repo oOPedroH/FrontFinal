@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anotações</title>
+  <!-- Importando o CSS do Materialize -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+  <!-- Estilos personalizados -->
+  <link href="css/style.css" rel="stylesheet">
+  <!-- Ícones do Materialize -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>
+    /* Estilo para limitar o texto da anotação na tabela */
+    td {
+      word-wrap: break-word; /* Quebra o texto automaticamente */
+      white-space: pre-wrap; /* Mantém o espaçamento e quebra de linha */
+      max-width: 300px; /* Define uma largura máxima para a célula */
+      padding: 10px; /* Adiciona espaçamento interno */
+      vertical-align: top; /* Alinha o texto ao topo da célula */
+    }
+
+    /* Estilo para a tabela */
+    table {
+      table-layout: fixed; /* Garante que as colunas tenham largura fixa */
+      width: 100%; /* Faz a tabela ocupar toda a largura disponível */
+    }
+
+    th, td {
+      text-align: left; /* Alinha o texto à esquerda */
+    }
+
+    th {
+      background-color: #f2f2f2; /* Cor de fundo para o cabeçalho */
+      font-weight: bold; /* Deixa o texto do cabeçalho em negrito */
+    }
+
+    /* Estilo para alinhar os ícones de ações lado a lado */
+    .action-icons {
+      display: flex;
+      gap: 10px; /* Espaçamento entre os ícones */
+      justify-content: center; /* Centraliza os ícones horizontalmente */
+      align-items: center; /* Centraliza os ícones verticalmente */
+    }
+
+    .action-icons i {
+      cursor: pointer;
+    }
+
+    .action-icons i:hover {
+      color: #0d47a1; /* Cor ao passar o mouse */
+    }
+
+    /* Ajusta o tamanho do campo "Definir Horário" */
+    #time-input {
+      height: 30px; /* Define a altura do campo */
+      font-size: 20px; /* Ajusta o tamanho da fonte */
+      padding: 7px; /* Reduz o espaçamento interno */
+    }
+
+    /* Ajusta o alinhamento do rótulo */
+    label[for="time-input"] {
+      font-size: 14px; /* Reduz o tamanho da fonte do rótulo */
+    }
+
+    /* Estilo para o título da página */
+    .title {
+      display: flex; /* Define um layout flexível */
+      justify-content: center; /* Centraliza o conteúdo horizontalmente */
+      align-items: center; /* Centraliza o conteúdo verticalmente */
+      text-align: center;
+      margin: 0;
+      padding: 20px 0;
+      color: #fff;
+      font-size: 2.5rem;
+      font-weight: bold;
+      position: fixed;
+      top: 0;
+      left: 0; /* Garante que o fundo comece na borda esquerda */
+      right: 0; /* Garante que o fundo termine na borda direita */
+      width: 100%; /* Faz o título ocupar toda a largura */
+      z-index: 1000;
+      background: rgba(0, 0, 0, 0.7); /* Fundo semitransparente para o título */
+    }
+
+    .title i {
+      margin-right: 10px;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      background: url('imagens/img2.jpg') no-repeat center center fixed;
+      background-size: cover;
+    }
+  </style>
+</head>
+<body>
+  <!-- Botão para abrir o menu lateral -->
+  <a href="#" id="menu-toggle" class="btn-floating btn-large blue" style="position: fixed; top: 20px; left: 20px; z-index: 2000;">
+    <i class="material-icons">menu</i>
+  </a>
+
+  <!-- Menu Lateral Vertical -->
+  <div class="menu-overlay" id="menu-overlay"></div>
+  <div class="sidenav" id="sidenav">
+    <a href="Index.html" class="menu-link">
+      <i class="material-icons">home</i> Menu
+    </a>
+    
+    <!-- Círculo de Foto -->
+    <div class="profile-circle">
+      <img src="imagens/img3.jpg" alt="Foto de Perfil">
+    </div>
+    
+    <a href="TelaAnotacao.html" class="menu-link">
+      <i class="material-icons">note</i> Anotações
+    </a>
+    <a href="TelaAgenda.html" class="menu-link">
+      <i class="material-icons">event</i> Agenda
+    </a>
+    <a href="TelaClientes.html" class="menu-link">
+      <i class="material-icons">people</i> Clientes
+    </a>
+    <a href="Tela.Anaminese.html" class="menu-link">
+      <i class="material-icons">assignment</i> Anamnese
+    </a>
+    <a href="Tela.Login.html" class="menu-link">
+      <i class="material-icons">logout</i> Sair
+    </a>
+  </div>
+
+  <!-- Conteúdo da Tela Anotações -->
+  <div class="content">
+    <div class="container">
+      <!-- Título da Página -->
+      <div class="title">
+        <i class="material-icons">note</i> Anotações
+      </div>
+
+      <!-- Formulário para adicionar anotações -->
+      <div class="row">
+        <form id="note-form" class="col s12">
+          <div class="input-field col s6">
+            <textarea id="note-input" class="materialize-textarea" placeholder="Digite sua anotação aqui..." maxlength="50"></textarea>
+            <label for="note-input">Nova Anotação (máx. 50 caracteres)</label>
+          </div>
+          <div class="input-field col s6">
+            <input type="time" id="time-input">
+            <label for="time-input">Definir Horário</label>
+          </div>
+          <div class="col s12 center-align">
+            <button class="btn waves-effect waves-light blue" type="submit">
+              Adicionar
+              <i class="material-icons right">add</i>
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Tabela de Destaques -->
+      <h4 class="center-align">Destaques</h4>
+      <table class="highlight centered">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Data e Horário</th>
+            <th>Anotação</th>
+            <th>Alerta</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody id="notes-table">
+          <!-- As anotações serão adicionadas aqui dinamicamente -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Importando o JavaScript do Materialize -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <!-- Script personalizado -->
+  <script>
+    // Selecionando os elementos
+    const noteForm = document.getElementById('note-form');
+    const noteInput = document.getElementById('note-input');
+    const timeInput = document.getElementById('time-input');
+    const notesTable = document.getElementById('notes-table');
+    let noteCounter = 0; // Contador para as anotações
+
+    // Função para obter a data e o horário atual no formato DD/MM HH:MM
+    function getCurrentDateTime() {
+      const now = new Date();
+      const day = String(now.getDate()).padStart(2, '0');
+      const month = String(now.getMonth() + 1).padStart(2, '0'); // Os meses começam em 0
+      const hours = String(now.getHours()).padStart(2, '0');
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      return `${day}/${month} ${hours}:${minutes}`;
+    }
+
+    // Função para adicionar uma nova anotação na tabela
+    function addNoteToTable(noteText, alertTime) {
+      noteCounter++; // Incrementa o contador de anotações
+      const currentDateTime = getCurrentDateTime(); // Obtém a data e o horário atual
+
+      // Cria uma nova linha na tabela
+      const row = document.createElement('tr');
+      row.innerHTML = `
+        <td>${noteCounter}</td>
+        <td>${currentDateTime}</td>
+        <td>${noteText}</td>
+        <td>${alertTime || '--:--'}</td>
+        <td class="action-icons">
+          <i class="material-icons edit-note" title="Editar">edit</i>
+          <i class="material-icons delete-note red-text" title="Excluir">delete</i>
+        </td>
+      `;
+
+      // Adiciona a linha à tabela
+      notesTable.appendChild(row);
+
+      // Adiciona evento para excluir a anotação
+      row.querySelector('.delete-note').addEventListener('click', function (e) {
+        e.preventDefault();
+        row.remove();
+        updateNoteCounter(); // Atualiza os números das linhas
+      });
+
+      // Adiciona evento para editar a anotação
+      row.querySelector('.edit-note').addEventListener('click', function () {
+        editNote(row);
+      });
+    }
+
+    // Atualiza os números das linhas após exclusão
+    function updateNoteCounter() {
+      const rows = notesTable.querySelectorAll('tr');
+      noteCounter = 0; // Reinicia o contador
+      rows.forEach((row) => {
+        noteCounter++;
+        row.querySelector('td:first-child').textContent = noteCounter;
+      });
+    }
+
+    // Evento de envio do formulário
+    noteForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const noteText = noteInput.value.trim();
+      const alertTime = timeInput.value;
+
+      if (noteText !== '') {
+        addNoteToTable(noteText, alertTime); // Adiciona a anotação e o horário no campo Alerta
+        noteInput.value = ''; // Limpa o campo de texto
+        timeInput.value = ''; // Limpa o campo de horário
+        M.textareaAutoResize(noteInput); // Ajusta o tamanho do textarea
+      } else {
+        M.toast({ html: 'Por favor, preencha o campo de anotação!', classes: 'red' });
+      }
+    });
+  </script>
+  <script src="js/script.js"></script>
+</body>
+</html>

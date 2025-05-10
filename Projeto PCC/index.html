@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Central Realè</title>
+  <!-- Importando o CSS do Materialize -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+  <!-- Estilos personalizados -->
+  <link href="css/style.css" rel="stylesheet">
+  <!-- Ícones do Materialize -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center; /* Centraliza horizontalmente */
+      align-items: center; /* Centraliza verticalmente */
+      background: url('imagens/img2.jpg') no-repeat center center fixed; /* Caminho da imagem */
+      background-size: cover; /* Ajusta a imagem para cobrir toda a tela */
+    }
+
+    .image-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 300px; /* Largura do quadrado */
+      height: 300px; /* Altura do quadrado */
+      background-color: white; /* Cor de fundo do quadrado */
+      border-radius: 10px; /* Bordas arredondadas */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para o quadrado */
+    }
+
+    .image-container img {
+      max-width: 100%;
+      max-height: 100%;
+      border-radius: 10px; /* Bordas arredondadas para a imagem */
+    }
+  </style>
+</head>
+<body>
+  <!-- Botão para abrir o menu lateral -->
+  <a href="#" id="menu-toggle" class="btn-floating btn-large blue" style="position: fixed; top: 20px; left: 20px; z-index: 2000;">
+    <i class="material-icons">menu</i>
+  </a>
+
+  <!-- Menu Lateral Vertical -->
+  <div class="menu-overlay" id="menu-overlay"></div>
+  <div class="sidenav" id="sidenav">
+    <a href="Index.html" class="menu-link">
+      <i class="material-icons">home</i> Menu
+    </a>
+    
+    <!-- Círculo de Foto -->
+    <div class="profile-circle">
+      <img src="imagens/img3.jpg" alt="Foto de Perfil">
+    </div>
+    
+    <a href="TelaAnotacao.html" class="menu-link">
+      <i class="material-icons">note</i> Anotações
+    </a>
+    <a href="TelaAgenda.html" class="menu-link">
+      <i class="material-icons">event</i> Agenda
+    </a>
+    <a href="TelaClientes.html" class="menu-link">
+      <i class="material-icons">people</i> Clientes
+    </a>
+    <a href="Tela.Anaminese.html" class="menu-link">
+      <i class="material-icons">assignment</i> Anamnese
+    </a>
+    <a href="Tela.Login.html" class="menu-link">
+      <i class="material-icons">logout</i> Sair
+    </a>
+  </div>
+
+  <!-- Imagem Central -->
+  <div class="image-container">
+    <img src="imagens/img4.jpg" alt="Imagem Central" class="rounded-image">
+  </div>
+
+  <!-- Importando o JavaScript do Materialize -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <!-- Script personalizado -->
+  <script src="js/script.js"></script>
+</body>
+</html>
